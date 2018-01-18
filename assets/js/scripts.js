@@ -13,9 +13,11 @@ $( document ).ready(function() {
       "ram"
     ];
 
-    var btnsDiv = $(".animal-buttons");
-    for ( i = 0; i < animals.length; i++ ) {
-      btnsDiv.append("<button class='btn'>" + animals[i] + "</button>");
+    function renderButtons() {
+      var btnsDiv = $(".animal-buttons");
+      for ( i = 0; i < animals.length; i++ ) {
+        btnsDiv.append("<button class='btn'>" + animals[i] + "</button>");
+      }
     }
 
     $( document ).on("click", ".btn", function() {
@@ -76,7 +78,7 @@ $( document ).ready(function() {
 
       // Adding movie from the textbox to our array
       animals.push(animal);
-      btnsDiv.append("<button class='btn'>" + animal + "</button>");
+      renderButtons();
     });
 
 
