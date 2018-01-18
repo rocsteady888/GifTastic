@@ -20,6 +20,9 @@ $( document ).ready(function() {
       }
     }
 
+    renderButtons();
+
+
     $( document ).on("click", ".btn", function() {
       $(".images").empty();
       // Storing our giphy API URL for a random new image
@@ -78,6 +81,7 @@ $( document ).ready(function() {
 
       // Adding movie from the textbox to our array
       animals.push(animal);
+      $(".animal-buttons").empty();
       renderButtons();
     });
 
