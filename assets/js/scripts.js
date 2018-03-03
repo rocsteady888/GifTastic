@@ -16,7 +16,7 @@ $( document ).ready(function() {
     function renderButtons() {
       var btnsDiv = $(".animal-buttons");
       for ( i = 0; i < animals.length; i++ ) {
-        btnsDiv.append("<button class='btn button'>" + animals[i] + "</button>");
+        btnsDiv.append("<button class='btn button purple'>" + animals[i] + "</button>");
       }
     }
 
@@ -38,21 +38,15 @@ $( document ).ready(function() {
 
       // After the data from the AJAX request comes back
       .then(function(response) {
-
+        $(".images").append(
+        "<h4>Click to toggle animation.</h4>"
+      );
         // Saving the image_original_url property
 
         // Creating and storing an image tag
         var newImage = $("<img>");
 
         for ( j = 0; j < response.data.length; j++ ) {
-
-          // <div class="card">
-          //   <div class="card-image">
-          //     <img src="images/sample-1.jpg">
-          //     <span class="card-title">Card Title</span>
-          //   </div>
-          // </div>
-
           $(".images").append(
           "<div class='card'>" +
           "<div class='card-image'>" +
