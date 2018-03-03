@@ -9,21 +9,21 @@ $( document ).ready(function() {
       "bear",
       "dog",
       "wolf",
-      "stag",
+      "otter",
       "ram"
     ];
 
     function renderButtons() {
       var btnsDiv = $(".animal-buttons");
       for ( i = 0; i < animals.length; i++ ) {
-        btnsDiv.append("<button class='btn'>" + animals[i] + "</button>");
+        btnsDiv.append("<button class='btn button'>" + animals[i] + "</button>");
       }
     }
 
     renderButtons();
 
 
-    $( document ).on("click", ".btn", function() {
+    $( document ).on("click", ".button", function() {
       $(".images").empty();
       // Storing our giphy API URL for a random new image
       let searchTerm = $(this).text();
