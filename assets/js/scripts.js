@@ -28,7 +28,7 @@ $( document ).ready(function() {
       // Storing our giphy API URL for a random new image
       let searchTerm = $(this).text();
       console.log(searchTerm);
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=GoEY1pjOIXX2XiJgXsUma6zZWKJjvSX0&limit=10";
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=GoEY1pjOIXX2XiJgXsUma6zZWKJjvSX0&limit=25";
 
       // Perfoming an AJAX GET request to our queryURL
       $.ajax({
@@ -45,14 +45,27 @@ $( document ).ready(function() {
         var newImage = $("<img>");
 
         for ( j = 0; j < response.data.length; j++ ) {
+
+          // <div class="card">
+          //   <div class="card-image">
+          //     <img src="images/sample-1.jpg">
+          //     <span class="card-title">Card Title</span>
+          //   </div>
+          // </div>
+
           $(".images").append(
+          "<div class='card'>" +
+          "<div class='card-image'>" +
           "<img src='" + response.data[j].images.original_still.url + "'" +
           "alt='" + response.data[j].slug + "'" +
           "data-still='" + response.data[j].images.original.url + "'" +
           "data-animate='" + response.data[j].images.original_still.url + "'" +
           "data-state='animate'" +
-          "class='animalImage'>");
-          $(".images").append("<p>" + response.data[j].rating + "</p>");
+          "class='animalImage'>" +
+          "<span class='card-title'>" + response.data[j].title + "</span>" +
+          "</div>" +
+          "</div>"
+          );
         }
         console.log(response);
       });
